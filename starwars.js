@@ -1,3 +1,5 @@
+//https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/ reference
+
 let films = new XMLHttpRequest();
 let filmes;
 films.open('GET', 'https://www.swapi.co/api/films', true);
