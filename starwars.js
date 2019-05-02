@@ -1,5 +1,24 @@
-// Seu javascript aqui :)
-// Use a Star Wars API: https://swapi.co/
-// para fazer uma requisição assíncrona e:
-//  - Pegar a lista de filmes (AJAX) e preencher no HTML
-//  - Quando um filme for clicado, exibir sua introdução
+let films = new XMLHttpRequest();
+let filmes;
+films.open('GET', 'https://www.swapi.co/api/films', true);
+
+films.onload = function () {
+    filmes = JSON.parse(this.response).results
+    console.log(filmes[0].title)
+}
+films.send(null);
+
+
+
+const app = document.getElementById('movies')
+
+let ul = document.createElement('ul')
+
+
+
+filmes.forEach(element => {
+    let li = document.createElement('li') 
+    li.textContent =  "Episode " + filmes[0].element.episode_id;
+    ul.appendChild(li)
+});
+app.appendChild(ul)
