@@ -11,10 +11,8 @@ films.onload = function () {
     let ul = document.createElement('ul')
     filmes.forEach(element => {
         let li = document.createElement('li') 
-        console.log(element)
         li.addEventListener('click', e =>{
             console.log(text)
-            text.innerHTML(element.crawled)
             e.stopPropagation()
         })
         li.textContent =  "Episode " + element.episode_id;
