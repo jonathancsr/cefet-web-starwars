@@ -3,24 +3,25 @@
 let films = new XMLHttpRequest();
 let filmes;
 films.open('GET', 'https://www.swapi.co/api/films', true);
-
 films.onload = function () {
     filmes = JSON.parse(this.response).results
-    console.log(filmes[0].title)
+    
+    const app = document.getElementById('movies')
+    const text = document.querySelector('.reading-animation')
+    let ul = document.createElement('ul')
+    filmes.forEach(element => {
+        let li = document.createElement('li') 
+        console.log(element)
+        li.addEventListener('click', e =>{
+            console.log(text)
+            text.innerHTML(element.crawled)
+            e.stopPropagation()
+        })
+        li.textContent =  "Episode " + element.episode_id;
+        ul.appendChild(li)
+    });
+    app.appendChild(ul)
+    
+        
 }
 films.send(null);
-
-
-
-const app = document.getElementById('movies')
-
-let ul = document.createElement('ul')
-
-
-
-filmes.forEach(element => {
-    let li = document.createElement('li') 
-    li.textContent =  "Episode " + filmes[0].element.episode_id;
-    ul.appendChild(li)
-});
-app.appendChild(ul)
